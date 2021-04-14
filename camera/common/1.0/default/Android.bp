@@ -12,6 +12,7 @@ cc_library_static {
         "-Werror",
         "-Wextra",
         "-Wall",
+        "-DCAMERA_USB_SUPPORT",
     ],
     shared_libs: [
         "liblog",

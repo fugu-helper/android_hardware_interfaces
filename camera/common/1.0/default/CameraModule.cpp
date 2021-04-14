@@ -290,7 +290,9 @@ int CameraModule::getCameraInfo(int cameraId, struct camera_info *info) {
     }
 
     ssize_t index = mCameraInfoMap.indexOfKey(cameraId);
+#ifndef CAMERA_USB_SUPPORT
     if (index == NAME_NOT_FOUND) {
+#endif
         // Get camera info from raw module and cache it
         camera_info rawInfo, cameraInfo;
         ATRACE_BEGIN("camera_module->get_camera_info");
@@ -311,7 +313,9 @@ int CameraModule::getCameraInfo(int cameraId, struct camera_info *info) {
         cameraInfo = rawInfo;
         cameraInfo.static_camera_characteristics = m.release();
         index = mCameraInfoMap.add(cameraId, cameraInfo);
+#ifndef CAMERA_USB_SUPPORT
     }
+#endif
 
     assert(index != NAME_NOT_FOUND);
     // return the cached camera info

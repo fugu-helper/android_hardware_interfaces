@@ -389,6 +389,12 @@ Return<void> CameraProvider::getCameraIdList(getCameraIdList_cb _hidl_cb)  {
     return Void();
 }
 
+Return<void> CameraProvider::getNumberOfCameras(getNumberOfCameras_cb _hidl_cb)  {
+    uint32_t ret = mModule->getNumberOfCameras();
+    _hidl_cb(Status::OK, ret);
+    return Void();
+}
+
 Return<void> CameraProvider::isSetTorchModeSupported(isSetTorchModeSupported_cb _hidl_cb) {
     bool support = mModule->isSetTorchModeSupported();
     _hidl_cb (Status::OK, support);

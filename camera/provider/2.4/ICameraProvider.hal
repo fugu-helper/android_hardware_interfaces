@@ -119,6 +119,9 @@ interface ICameraProvider {
     getCameraIdList()
             generates (Status status, vec<string> cameraDeviceNames);
 
+    getNumberOfCameras()
+            generates (Status status, uint32_t numberofcameras);
+
     /**
      * isSetTorchModeSupported:
      *

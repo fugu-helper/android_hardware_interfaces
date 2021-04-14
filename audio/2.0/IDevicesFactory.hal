@@ -27,7 +27,9 @@ interface IDevicesFactory {
         A2DP,
         USB,
         R_SUBMIX,
-        STUB
+        STUB,
+        HDMI,
+        HDMI2
     };
 
     /**
